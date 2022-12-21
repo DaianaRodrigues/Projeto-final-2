@@ -1,6 +1,6 @@
 # Nosso Projeto: Controle Remoto
 
-  Participantes: Daiana,Nicolly
+- Participantes: Daiana,Nicolly
 
- Vamos usar o console e não vamos usar interface.
+- Vamos usar o console e não vamos usar interface.
 

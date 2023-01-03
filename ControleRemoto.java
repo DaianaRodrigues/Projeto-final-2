@@ -1,5 +1,5 @@
 public class ControleRemoto implements Controlador {
-    private int volume;
+    public int volume;
     private boolean ligado;
     private boolean tocando;
 
@@ -71,7 +71,6 @@ public class ControleRemoto implements Controlador {
         } else{
             System.out.println("Impossível aumentar o volume, a TV está desligada.");
         }
-
     }
 
     @Override

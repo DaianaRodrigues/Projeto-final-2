@@ -1,7 +1,17 @@
+import javax.swing.*;
 import java.util.Scanner;
 
 public class Main {
+
+
     public static void main(String[] args) {
+        JFrame frame = new JFrame("HelloWorldSwing");
+        final JLabel label = new JLabel("Hello World");
+        frame.getContentPane().add(label);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setVisible(true);
+
         ControleRemoto controleRemoto = new ControleRemoto();
         Scanner ler = new Scanner(System.in);
         int sim = 1;

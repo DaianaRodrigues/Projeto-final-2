@@ -1,4 +1,15 @@
+import java.util.Scanner;
+
 public class ControleRemoto implements Controlador {
+    Scanner ler = new Scanner(System.in);
+    String resposta;
+    int aumentarVolume = 3;
+    int abaixarVolume = 4;
+    int ligarMudo = 5;
+    int desligarMudo = 6;
+    int play = 7;
+    int pause = 8;
+    int fecharMenu = 9;
     public int volume;
     private boolean ligado;
     private boolean tocando;
@@ -35,83 +46,72 @@ public class ControleRemoto implements Controlador {
 
     @Override
     public void ligar() {
-        this.setLigado(true);
+
     }
 
     @Override
     public void desligar() {
-        this.setLigado(false);
+
     }
+
     @Override
     public void abrirMenu() {
-        if(this.getLigado() == true) {
-            System.out.println("----- MENU -----");
-            System.out.println("Está ligado? " + this.getLigado());
-            System.out.println("Está tocando? " + this.getTocando());
-            System.out.print("Volume: " + this.getVolume());
-            for (int i = 0; i <= this.getVolume(); i += 10) {
-                System.out.print(" |");
-            }
-            System.out.println("");
-        }else{
-            System.out.println("Ligue a TV!");
+        System.out.println("------ MENU ------");
+        System.out.println("3-Aumentar Volume\n4-baixar Volume\n5-Ligar mudo\n6-Desligar Mudo\n" +
+                "7-Dar play\n8-Dar pause\n9-Fechar Menu");
+
+        resposta = ler.nextLine();
+        int resposta2 = Integer.parseInt(resposta);
+        if(resposta2 == aumentarVolume){
+            maisVolume();
+        } else if(resposta2 == abaixarVolume){
+            menosVolume();
+        } else if(resposta2 == ligarMudo) {
+            ligarMudo();
+        } else if(resposta2 == desligarMudo){
+            desligarMudo();
+        } else if(resposta2 == play){
+            play();
+        } else if(resposta2 == pause){
+            pause();
+        } else if(resposta2 == fecharMenu){
+            fecharMenu();
         }
+
     }
     @Override
     public void fecharMenu() {
-        if(this.getLigado() == true) {
             System.out.println("Fechando Menu...");
-        }
     }
 
     @Override
     public void maisVolume() {
-        if(this.getLigado()){
             this.setVolume(this.getVolume() + 1);
-        } else{
-            System.out.println("Impossível aumentar o volume, a TV está desligada.");
-        }
+            System.out.print("Volume: " + getVolume());
     }
 
-    @Override
     public void menosVolume() {
-        if(this.getLigado()){
             this.setVolume(this.getVolume() - 1);
-        } else{
-            System.out.println("Impossível diminuir o volume, a TV está desligada.");
-        }
-
+            System.out.println("Volume: " + getVolume());
     }
 
     @Override
     public void ligarMudo() {
-        if(this.getLigado() && this.getVolume() > 0){
-            this.setVolume(0);
-        }
+            System.out.println("TV mutada!");
     }
 
     @Override
     public void desligarMudo() {
-        if(this.getLigado() && this.getVolume() == 0){
-            this.setVolume(50);
-        }
+        System.out.println("TV Desmutada!");
     }
 
     @Override
     public void play() {
-        if(this.getLigado() && !(this.getTocando())){
-            this.setTocando(true);
-        } else{
-            System.out.println("Não consegui reproduzir, a TV está desligada!");
-        }
+        System.out.println("Reproduzindo...!");
     }
 
     @Override
     public void pause() {
-        if(this.getLigado() && this.getTocando()){
-            this.setTocando(false);
-        } else{
-            System.out.println("Não consegui pausar, a TV está desligada!");
-        }
+        System.out.println("Pausado");
     }
 }

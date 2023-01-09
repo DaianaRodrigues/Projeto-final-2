@@ -12,18 +12,10 @@ public class Main {
         resposta = ler.nextLine();
         int numero = Integer.parseInt(resposta);
         if(numero == sim){
-            controleRemoto.ligar();
-        } else{
+            System.out.println("TV Ligada!");
+            controleRemoto.abrirMenu();
+        } else if(numero == nao){
             System.out.println("TV desligada!");
         }
-        System.out.println("O que deseja fazer?\n1-Aumentar Volume\n2-Abaixar Volume");
-        resposta = ler.nextLine();
-        int numero2 = Integer.parseInt(resposta);
-        if(numero2 == sim){
-            controleRemoto.maisVolume();
-            System.out.print("Volume: " + controleRemoto.volume);
-
-        }
-
     }
 }

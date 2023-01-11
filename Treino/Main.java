@@ -1,3 +1,5 @@
+package Treino;
+
 import java.util.Scanner;
 
 public class Main {

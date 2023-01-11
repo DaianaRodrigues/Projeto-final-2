@@ -1,3 +1,5 @@
+package Treino;
+
 import java.util.Scanner;
 
 public class ControleRemoto implements Controlador {

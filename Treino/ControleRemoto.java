@@ -4,14 +4,14 @@ import java.util.Scanner;
 
 public class ControleRemoto implements Controlador {
     Scanner ler = new Scanner(System.in);
-    String resposta;
-    int aumentarVolume = 3;
-    int abaixarVolume = 4;
-    int ligarMudo = 5;
-    int desligarMudo = 6;
-    int play = 7;
-    int pause = 8;
-    int fecharMenu = 9;
+    int resposta;
+    int aumentarVolume = 1;
+    int abaixarVolume = 2;
+    int ligarMudo = 3;
+    int desligarMudo = 4;
+    int play = 5;
+    int pause = 6;
+    int fecharMenu = 8;
     public int volume;
     private boolean ligado;
     private boolean tocando;
@@ -59,28 +59,27 @@ public class ControleRemoto implements Controlador {
     @Override
     public void abrirMenu() {
         System.out.println("------ MENU ------");
-        System.out.println("3-Aumentar Volume\n4-baixar Volume\n5-Ligar mudo\n6-Desligar Mudo\n" +
-                "7-Dar play\n8-Dar pause\n9-Fechar Menu");
+        System.out.println("1-Aumentar Volume\n2-Baixar Volume\n3-Ligar mudo\n4-Desligar Mudo\n" +
+                "5-Dar play\n6-Dar pause\n7-Fechar Menu");
 
-        resposta = ler.nextLine();
-        int resposta2 = Integer.parseInt(resposta);
-        if(resposta2 == aumentarVolume){
+        resposta = ler.nextInt();
+        if(resposta == aumentarVolume){
             maisVolume();
-        } else if(resposta2 == abaixarVolume){
+        } else if(resposta == abaixarVolume){
             menosVolume();
-        } else if(resposta2 == ligarMudo) {
+        } else if(resposta == ligarMudo) {
             ligarMudo();
-        } else if(resposta2 == desligarMudo){
+        } else if(resposta == desligarMudo){
             desligarMudo();
-        } else if(resposta2 == play){
+        } else if(resposta == play){
             play();
-        } else if(resposta2 == pause){
+        } else if(resposta == pause){
             pause();
-        } else if(resposta2 == fecharMenu){
+        } else if(resposta == fecharMenu){
             fecharMenu();
         }
-
     }
+
     @Override
     public void fecharMenu() {
             System.out.println("Fechando Menu...");

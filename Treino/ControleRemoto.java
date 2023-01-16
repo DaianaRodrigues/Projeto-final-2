@@ -3,18 +3,20 @@ package Treino;
 import java.util.Scanner;
 
 public class ControleRemoto implements Controlador {
+
     private Scanner ler = new Scanner(System.in);
     private int sim = 1;
     private int nao = 2;
     private int resposta;
     private int aumentarVolume = 1;
     private int abaixarVolume = 2;
-    private int ligarMudo = 3;
-    private int desligarMudo = 4;
-    private int play = 5;
-    private int pause = 6;
-    private int fecharMenu = 7;
-    private int desligar = 8;
+    private int mudarCanal = 3;
+    private int ligarMudo = 4;
+    private int desligarMudo = 5;
+    private int play = 6;
+    private int pause = 7;
+    private int fecharMenu = 8;
+    private int desligar = 9;
     private int volume = 50;
 
     @Override
@@ -30,7 +32,7 @@ public class ControleRemoto implements Controlador {
             } else if (resposta != sim && resposta != nao) {
                 System.out.println("Opção Inválida! Digite 1-Sim ou 2-Não");
             }
-            while(resposta != fecharMenu) {
+            while(resposta != fecharMenu && resposta != desligar) {
                 System.out.println("\nVoltar ao menu?\n1-Sim\n2-Não");
                 resposta = ler.nextInt();
                 if (resposta == sim) {
@@ -50,8 +52,8 @@ public class ControleRemoto implements Controlador {
     @Override
     public void abrirMenu() {
         System.out.println("------ MENU ------");
-        System.out.println("1-Aumentar Volume\n2-Abaixar Volume\n3-Ligar mudo\n4-Desligar Mudo\n" +
-                "5-Dar play\n6-Dar pause\n7-Fechar Menu\n8-Desligar TV!");
+        System.out.println("1-Mudar de Canal!\n2-Aumentar Volume\n3-Abaixar Volume\n4-Ligar mudo\n" +
+                "5-Desligar Mudo\n6-Dar play\n7-Dar pause\n8-Fechar Menu\n9-Desligar TV!");
 
         resposta = ler.nextInt();
         if(resposta == aumentarVolume){
@@ -76,6 +78,11 @@ public class ControleRemoto implements Controlador {
     @Override
     public void fecharMenu() {
         System.out.println("Fechando Menu...");
+    }
+
+    @Override
+    public void mudarCanal(){
+        System.out.println("Mudando de canal...");
     }
 
     @Override

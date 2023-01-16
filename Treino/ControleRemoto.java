@@ -3,64 +3,55 @@ package Treino;
 import java.util.Scanner;
 
 public class ControleRemoto implements Controlador {
-    Scanner ler = new Scanner(System.in);
-    int resposta;
-    int aumentarVolume = 1;
-    int abaixarVolume = 2;
-    int ligarMudo = 3;
-    int desligarMudo = 4;
-    int play = 5;
-    int pause = 6;
-    int fecharMenu = 8;
-    public int volume;
-    private boolean ligado;
-    private boolean tocando;
-
-    public ControleRemoto() {
-        this.volume = 50;
-        this.ligado = false;
-        this.tocando = false;
-    }
-
-    private int getVolume() {
-        return volume;
-    }
-
-    private void setVolume(int volume) {
-        this.volume = volume;
-    }
-
-    private boolean getLigado() {
-        return ligado;
-    }
-
-    private void setLigado(boolean ligado) {
-        this.ligado = ligado;
-    }
-
-    private boolean getTocando() {
-        return tocando;
-    }
-
-    private void setTocando(boolean tocando) {
-        this.tocando = tocando;
-    }
+    private Scanner ler = new Scanner(System.in);
+    private int sim = 1;
+    private int nao = 2;
+    private int resposta;
+    private int aumentarVolume = 1;
+    private int abaixarVolume = 2;
+    private int ligarMudo = 3;
+    private int desligarMudo = 4;
+    private int play = 5;
+    private int pause = 6;
+    private int fecharMenu = 7;
+    private int desligar = 8;
+    private int volume = 50;
 
     @Override
     public void ligar() {
-
+        try {
+            System.out.println("Você gostaria de ligar a TV?\n1-Sim\n2-Não");
+            resposta = ler.nextInt();
+            if (resposta == sim) {
+                System.out.println("\nTV Ligada!");
+               abrirMenu();
+            } else if (resposta == nao) {
+                System.out.println("TV desligada!");
+            } else if (resposta != sim && resposta != nao) {
+                System.out.println("Opção Inválida! Digite 1-Sim ou 2-Não");
+            }
+            while(resposta != fecharMenu) {
+                System.out.println("\nVoltar ao menu?\n1-Sim\n2-Não");
+                resposta = ler.nextInt();
+                if (resposta == sim) {
+                    abrirMenu();
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Opção Inválida!");
+        }
     }
 
     @Override
     public void desligar() {
-
+        System.out.println("Desligando TV...");
     }
 
     @Override
     public void abrirMenu() {
         System.out.println("------ MENU ------");
-        System.out.println("1-Aumentar Volume\n2-Baixar Volume\n3-Ligar mudo\n4-Desligar Mudo\n" +
-                "5-Dar play\n6-Dar pause\n7-Fechar Menu");
+        System.out.println("1-Aumentar Volume\n2-Abaixar Volume\n3-Ligar mudo\n4-Desligar Mudo\n" +
+                "5-Dar play\n6-Dar pause\n7-Fechar Menu\n8-Desligar TV!");
 
         resposta = ler.nextInt();
         if(resposta == aumentarVolume){
@@ -77,28 +68,30 @@ public class ControleRemoto implements Controlador {
             pause();
         } else if(resposta == fecharMenu){
             fecharMenu();
+        } else if(resposta == desligar){
+            desligar();
         }
     }
 
     @Override
     public void fecharMenu() {
-            System.out.println("Fechando Menu...");
+        System.out.println("Fechando Menu...");
     }
 
     @Override
     public void maisVolume() {
-            this.setVolume(this.getVolume() + 1);
-            System.out.print("Volume: " + getVolume());
+        int aumento = volume + 1;
+        System.out.print("Volume: " + aumento);
     }
 
     public void menosVolume() {
-            this.setVolume(this.getVolume() - 1);
-            System.out.println("Volume: " + getVolume());
+        int abaixar = volume - 1;
+        System.out.println("Volume: " + abaixar);
     }
 
     @Override
     public void ligarMudo() {
-            System.out.println("TV mutada!");
+        System.out.println("TV mutada!");
     }
 
     @Override

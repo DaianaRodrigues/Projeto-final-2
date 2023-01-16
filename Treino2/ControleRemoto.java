@@ -89,6 +89,11 @@ public class ControleRemoto implements Controlador {
     }
 
     @Override
+    public void mudarCanal() {
+
+    }
+
+    @Override
     public void maisVolume() {
             this.setVolume(this.getVolume() + 1);
             System.out.print("Volume: " + getVolume());

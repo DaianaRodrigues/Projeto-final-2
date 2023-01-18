@@ -3,7 +3,7 @@ package Treino;
 public interface Controlador {
      void ligar();
      void desligar();
-     void abrirMenu();
+     Object abrirMenu();
      void fecharMenu();
      void mudarCanal();
      void maisVolume();

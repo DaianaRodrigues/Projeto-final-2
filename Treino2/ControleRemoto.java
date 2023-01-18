@@ -1,4 +1,3 @@
-package Treino2;
 
 import Treino.Controlador;
 
@@ -59,7 +58,7 @@ public class ControleRemoto implements Controlador {
     }
 
     @Override
-    public void abrirMenu() {
+    public Object abrirMenu() {
         System.out.println("------ MENU ------");
         System.out.println("3-Aumentar Volume\n4-baixar Volume\n5-Ligar mudo\n6-Desligar Mudo\n" +
                 "7-Dar play\n8-Dar pause\n9-Fechar Menu");
@@ -82,6 +81,7 @@ public class ControleRemoto implements Controlador {
             fecharMenu();
         }
 
+        return null;
     }
     @Override
     public void fecharMenu() {

@@ -1,9 +1,7 @@
 package Treino;
-
 import java.util.Scanner;
 
 public class ControleRemoto implements Controlador {
-
     private Scanner ler = new Scanner(System.in);
     private int sim = 1;
     private int nao = 2;
@@ -50,7 +48,7 @@ public class ControleRemoto implements Controlador {
     }
 
     @Override
-    public void abrirMenu() {
+    public Object abrirMenu() {
         System.out.println("------ MENU ------");
         System.out.println("1-Mudar de Canal!\n2-Aumentar Volume\n3-Abaixar Volume\n4-Ligar mudo\n" +
                 "5-Desligar Mudo\n6-Dar play\n7-Dar pause\n8-Fechar Menu\n9-Desligar TV!");
@@ -73,6 +71,7 @@ public class ControleRemoto implements Controlador {
         } else if(resposta == desligar){
             desligar();
         }
+        return null;
     }
 
     @Override

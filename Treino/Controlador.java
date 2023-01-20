@@ -1,16 +1,15 @@
 package Treino;
 
-public interface Controlador {
-     void ligar();
-     void desligar();
-     Object abrirMenu();
-     void fecharMenu();
-     void mudarCanal();
-     void maisVolume();
-     void menosVolume();
-     void ligarMudo();
-     void desligarMudo();
-     void play();
-     void pause();
+import java.awt.event.ActionListener;
 
+public interface Controlador {
+     ActionListener desligar();
+     ActionListener fecharMenu();
+     ActionListener mudarCanal();
+     ActionListener maisVolume();
+     ActionListener menosVolume();
+     ActionListener ligarMudo();
+     ActionListener desligarMudo();
+     ActionListener play();
+     ActionListener pause();
 }

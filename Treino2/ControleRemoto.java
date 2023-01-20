@@ -1,6 +1,7 @@
 
 import Treino.Controlador;
 
+import java.awt.event.ActionListener;
 import java.util.Scanner;
 
 public class ControleRemoto implements Controlador {
@@ -47,80 +48,59 @@ public class ControleRemoto implements Controlador {
         this.tocando = tocando;
     }
 
-    @Override
-    public void ligar() {
-
-    }
 
     @Override
-    public void desligar() {
-
-    }
-
-    @Override
-    public Object abrirMenu() {
-        System.out.println("------ MENU ------");
-        System.out.println("3-Aumentar Volume\n4-baixar Volume\n5-Ligar mudo\n6-Desligar Mudo\n" +
-                "7-Dar play\n8-Dar pause\n9-Fechar Menu");
-
-        resposta = ler.nextLine();
-        int resposta2 = Integer.parseInt(resposta);
-        if(resposta2 == aumentarVolume){
-            maisVolume();
-        } else if(resposta2 == abaixarVolume){
-            menosVolume();
-        } else if(resposta2 == ligarMudo) {
-            ligarMudo();
-        } else if(resposta2 == desligarMudo){
-            desligarMudo();
-        } else if(resposta2 == play){
-            play();
-        } else if(resposta2 == pause){
-            pause();
-        } else if(resposta2 == fecharMenu){
-            fecharMenu();
-        }
+    public ActionListener desligar() {
 
         return null;
     }
+
     @Override
-    public void fecharMenu() {
+    public ActionListener fecharMenu() {
             System.out.println("Fechando Menu...");
+        return null;
     }
 
     @Override
-    public void mudarCanal() {
+    public ActionListener mudarCanal() {
 
+        return null;
     }
 
     @Override
-    public void maisVolume() {
+    public ActionListener maisVolume() {
             this.setVolume(this.getVolume() + 1);
             System.out.print("Volume: " + getVolume());
+        return null;
     }
 
-    public void menosVolume() {
+    public ActionListener menosVolume() {
             this.setVolume(this.getVolume() - 1);
             System.out.println("Volume: " + getVolume());
+        return null;
     }
 
     @Override
-    public void ligarMudo() {
+    public ActionListener ligarMudo() {
             System.out.println("TV mutada!");
+        return null;
     }
 
     @Override
-    public void desligarMudo() {
+    public ActionListener desligarMudo() {
         System.out.println("TV Desmutada!");
+        return null;
     }
 
     @Override
-    public void play() {
+    public ActionListener play() {
         System.out.println("Reproduzindo...!");
+        return null;
     }
 
     @Override
-    public void pause() {
+    public ActionListener pause() {
         System.out.println("Pausado");
+        return null;
     }
 }

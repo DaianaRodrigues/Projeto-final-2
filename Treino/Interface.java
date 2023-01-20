@@ -2,6 +2,8 @@ package Treino;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
 
 public class Interface extends JFrame{
     private JButton ligarTv, desligarTv;
@@ -9,13 +11,11 @@ public class Interface extends JFrame{
 
     public Interface(){
         // Cria os botões iniciais e adiciona os eventos de clique
-        ligarTv = new JButton("Ligar TV");
-        ligarTv.setBackground(Color.red);
-        ImageIcon icon = new ImageIcon("botao-ligar-desligar.png");
-        JLabel label = new JLabel(icon);
-        ligarTv.setIcon(label.getIcon());
+        Border thickBorder = new LineBorder(Color.WHITE, 12);
+        ligarTv = new JButton();
+        ligarTv.setBackground(new Color(255,99,71));
+        ligarTv.setIcon(new ImageIcon("Treino/botao-ligar-desligar.png"));
         ligarTv.addActionListener(new OnButtonListener());
-
         desligarTv = new JButton("Desligar TV");
         desligarTv.addActionListener(new OffButtonListener());
 

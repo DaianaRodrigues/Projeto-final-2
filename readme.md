@@ -1,4 +1,4 @@
-# Nosso Projeto: Controladore Remoto
+# Nosso Projeto: Controle Remoto
 
 - Participantes: Daiana,Nicolly
 
